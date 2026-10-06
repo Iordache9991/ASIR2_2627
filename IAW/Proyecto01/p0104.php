@@ -8,7 +8,7 @@
 <body>
     <h1>estamos en p0104</h1>
     <?php // var_export($_POST);  ?>
-    <h2>el usuario es <?php echo $_POST['usuario']?></h2>
+    <h2>el usuario es <?php hacer una calculadora simple echo $_POST['usuario']?></h2>
     <h6>el contraseña es <?php echo $_POST['contra']?></h6>
 </body>
 </html>
