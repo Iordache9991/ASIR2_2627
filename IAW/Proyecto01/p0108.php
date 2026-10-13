@@ -37,6 +37,7 @@
             else if ($boton==="sumatorioPar")
             {
                 echo "El resultado es: ".$acumuladorPar;
+                poner la práctica de dados
             }
     ?>
     </div>
