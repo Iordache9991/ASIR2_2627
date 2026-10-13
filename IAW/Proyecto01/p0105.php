@@ -8,8 +8,13 @@
 <body>
     <form action="p0106.php" method="post">
         <div><input type="text" name="n1"></div>
-       <div><input type="text" name="n2"></div>
-       <div><input type="submit" value="+" name="op"><input type="submit" value="-" name="op"></div>
+        <div><input type="text" name="n2"></div>
+       <div>
+            <input type="submit" value="+" name="op">
+            <input type="submit" value="-" name="op">
+            <input type="submit" value="x" name="op">
+            <input type="submit" value="/" name="op">
+        </div>
     </form>
 </body>
 </html>
