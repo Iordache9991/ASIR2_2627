@@ -20,19 +20,35 @@ Teoría asociada: https://poliestireno.github.io/VARIOS_2026/clase-sad-material2
 
 **Escenario:** imagina que eres el administrador de un equipo de desarrollo con varios usuarios, y necesitas configurar los permisos de un proyecto compartido entre tres usuarios: **monon1**, **tronko2** y **birmingan3**. Cada uno debe tener permisos específicos para un directorio de proyecto, de acuerdo con su rol.
 
+
+<img width="424" height="86" alt="image" src="https://github.com/user-attachments/assets/5ad7c1b5-458c-4b3f-ac61-a9150f32bd8f" />
+
 - **Paso 1: Crear un entorno simulado de usuarios y grupos.** Crea los tres usuarios y un grupo común llamado `devEria2`. Crea un directorio llamado `di_recto` para el proyecto y cambia el grupo propietario a `devEria2`.
+<img width="528" height="151" alt="image" src="https://github.com/user-attachments/assets/662b3dbb-f46b-439e-b883-44a6d31c83b2" />
+
+
 - **Paso 2: Configuración de permisos básicos.** Configura los permisos para que solo los usuarios del grupo `devEria2` puedan escribir en el directorio. Verifica mostrando los permisos del directorio.
+<img width="589" height="127" alt="image" src="https://github.com/user-attachments/assets/4f749f83-c08b-4725-9041-f0b46c1b776f" />
+
 - **Paso 3: Configuración de permisos avanzados.** **monon1** debe tener permisos completos (lectura, escritura, ejecución) en todo el proyecto: cambia el propietario del directorio a **monon1**. Los otros dos usuarios del grupo solo deben poder leer y ejecutar archivos, pero no modificarlos: cambia los permisos de modo que el grupo `devEria2` solo tenga permisos de lectura y ejecución.
+
+  
+<img width="624" height="183" alt="image" src="https://github.com/user-attachments/assets/e76fbe9e-da61-4178-976a-0b20f483282d" />
 
 **Preguntas:**
 - ¿Qué sucede si un usuario fuera del grupo `devEria2` intenta acceder al directorio?
+- El sistema le denegará el acceso por completo mostrando un error de "Permiso denegado" (Permission denied). Esto se debe a que el tercer bloque de permisos (otros) está configurado en --- (ningún permiso).
 - ¿Qué sucede si **tronko2** intenta modificar un archivo dentro del directorio?
-
+ No podrá modificarlo. Al pertenecer al grupo devEria2, sus permisos sobre el directorio son de solo lectura y ejecución (r-x). Carece del permiso de escritura (w) necesario para alterar o crear contenidos en él.
 #### Ejercicio 2: Control de Acceso con el Bit SGID en Directorios
 
 **Escenario:** el equipo de desarrollo necesita colaborar en un subdirectorio dentro de `di_recto`. Queremos asegurarnos de que cualquier archivo creado en ese subdirectorio tenga automáticamente el mismo grupo propietario (`devEria2`), para facilitar la colaboración.
 
 - **Paso 1: Crear un subdirectorio para colaboración.** Crea un subdirectorio llamado `di_afano` dentro de `/di_recto`. Cambia el grupo propietario del subdirectorio a `devEria2`.
+
+<img width="472" height="95" alt="image" src="https://github.com/user-attachments/assets/6ea57156-d66c-42aa-93b1-edc8d2138efa" />
+
+
 - **Paso 2: Aplicar el bit SGID.** Aplica el bit SGID al subdirectorio `di_afano`, para que todos los archivos creados en él hereden el grupo propietario. Verifica y muestra los permisos del subdirectorio.
 - **Paso 3: Crear archivos de prueba.** Cambia a **tronko2** y crea un archivo llamado `archivo_tronko2.txt` dentro del subdirectorio `di_afano`. Verifica y muestra los permisos y el grupo propietario del archivo.
 
